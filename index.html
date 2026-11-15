@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONEFILM - Curated Movie Recommendations</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="home-page">
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <div class="container">
+        <header class="home-hero">
+            <div class="hero-badge">▪ CINEMATIC DISCOVERY ▪</div>
+            <h1 class="main-title">ONEFILM</h1>
+            <p class="tagline">Stop endless scrolling. Pick a movie, faster and better.</p>
+        </header>
+
+        <main>
+            <!-- MOVIE OF THE DAY FEATURE -->
+            <section class="daily-movie-section" aria-label="Movie of the Day">
+                <div class="daily-movie-card" id="dailyMovieCard">
+                    <div class="daily-card-header">
+                        <div class="daily-label">
+                            <span class="star-icon">★</span> MOVIE OF THE DAY
+                        </div>
+                        <span class="daily-platform-pill" id="dailyPlatformBadge">Streaming</span>
+                    </div>
+
+                    <div class="daily-body">
+                        <div class="daily-title-row">
+                            <h2 class="daily-title" id="dailyTitle">Loading Daily Recommendation...</h2>
+                            <div class="daily-meta">
+                                <span class="daily-genre" id="dailyGenre">—</span>
+                                <span class="meta-separator">•</span>
+                                <span class="daily-year" id="dailyYear">—</span>
+                                <span class="meta-separator">•</span>
+                                <span class="daily-imdb-badge">
+                                    <span class="imdb-pill">IMDb</span>
+                                    <strong id="dailyRating">—</strong><span class="imdb-out-of">/10</span>
+                                </span>
+                            </div>
+                        </div>
+                        <p class="daily-desc" id="dailyDesc">Curating today's top cinematic pick for you...</p>
+                    </div>
+
+                    <div class="daily-footer">
+                        <span class="imdb-attribution-text">IMDb Rating verified • Daily calendar selection</span>
+                        <button type="button" class="btn-discover-another" id="discoverAnotherBtn">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                            </svg>
+                            Discover Another
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PLATFORM SELECTION -->
+            <section class="platforms-section" aria-labelledby="select-ott-heading">
+                <div class="section-title-wrap">
+                    <h2 class="select-ott" id="select-ott-heading">SELECT YOUR PLATFORM</h2>
+                    <p class="section-subtitle">Pick your streaming provider to get tailored mood recommendations</p>
+                </div>
+
+                <div class="ott-grid">
+                    <a href="netflix.html" class="ott-card netflix">
+                        <div class="card-glow"></div>
+                        <div class="card-icon-wrapper">
+                            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/netflix.svg" alt="Netflix">
+                        </div>
+                        <span class="ott-name">Netflix</span>
+                        <span class="ott-count">▪ 55 CURATED FILMS ▪</span>
+                    </a>
+
+                    <a href="amazon.html" class="ott-card amazon">
+                        <div class="card-glow"></div>
+                        <div class="card-icon-wrapper">
+                            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/amazon.svg" alt="Amazon Prime Video">
+                        </div>
+                        <span class="ott-name">Amazon Prime</span>
+                        <span class="ott-count">▪ 55 CURATED FILMS ▪</span>
+                    </a>
+
+                    <a href="hotstar.html" class="ott-card hotstar">
+                        <div class="card-glow"></div>
+                        <div class="card-icon-wrapper">
+                            <svg class="brand-icon" viewBox="0 0 36 28" fill="currentColor">
+                                <path d="M3 23 C9 7, 27 7, 33 23 C26 10, 10 10, 3 23 Z" />
+                                <path d="M10 8 H16 C20.5 8, 23.5 11, 23.5 15 C23.5 19, 20.5 22, 16 22 H10 Z M13 11 V19 H15.8 C18.5 19, 20.2 17.5, 20.2 15 C20.2 12.5, 18.5 11, 15.8 11 Z" />
+                                <path d="M26 13.5 H28 V11 H30 V13.5 H32.5 V15.5 H30 V18 H28 V15.5 H26 Z" />
+                            </svg>
+                        </div>
+                        <span class="ott-name">Disney+ Hotstar</span>
+                        <span class="ott-count">▪ 55 CURATED FILMS ▪</span>
+                    </a>
+
+                    <a href="appletv.html" class="ott-card appletv">
+                        <div class="card-glow"></div>
+                        <div class="card-icon-wrapper">
+                            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/appletv.svg" alt="Apple TV+">
+                        </div>
+                        <span class="ott-name">Apple TV+</span>
+                        <span class="ott-count">▪ 55 CURATED FILMS ▪</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- ABOUT SECTION -->
+            <section class="about-section" aria-labelledby="about-heading">
+                <div class="about-card">
+                    <div class="about-header">
+                        <span class="about-icon">🎬</span>
+                        <h3 id="about-heading">About ONEFILM</h3>
+                    </div>
+                    <div class="about-content">
+                        <p>
+                            ONEFILM eliminates decision fatigue by offering one confident, hyper-focused movie suggestion based on your streaming subscriptions and current mood. Rather than browsing endlessly through overwhelming catalogs, tell us how you feel or what you are looking for, and dive straight into great cinema.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="home-footer">
+            <p>© ONEFILM • Movie data & IMDb ratings verified for educational and discovery purposes.</p>
+        </footer>
+    </div>
+
+    <!-- Core Scripts -->
+    <script src="movies.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

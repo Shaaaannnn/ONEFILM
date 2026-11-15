@@ -1,0 +1,1882 @@
+/* ==========================================================================
+   ONEFILM - CINEMATIC MOVIE DISCOVERY
+   AESTHETIC: MODERN PIXEL MINIMALISM + PREMIUM CINEMATIC ATMOSPHERE
+   ========================================================================== */
+
+:root {
+    /* Fonts */
+    --font-pixel: 'Pixelify Sans', cursive, monospace;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+    /* Base Palette */
+    --bg-dark: #090b10;
+    --bg-surface: #10131a;
+    --bg-card: rgba(18, 22, 31, 0.86);
+    --bg-card-hover: rgba(25, 31, 43, 0.94);
+    --bg-element: rgba(255, 255, 255, 0.055);
+    --bg-element-hover: rgba(255, 255, 255, 0.1);
+
+    /* Borders */
+    --border-subtle: rgba(255, 255, 255, 0.12);
+    --border-medium: rgba(255, 255, 255, 0.22);
+    --border-highlight: rgba(255, 255, 255, 0.44);
+
+    /* Typography Colors */
+    --text-primary: #f8fafc;
+    --text-secondary: #a6b4c7;
+    --text-muted: #7b8ba1;
+    --text-dim: #5c6e86;
+
+    /* Streaming Platform Brand Colors */
+    --accent-netflix: #f0121d;
+    --accent-netflix-glow: rgba(240, 18, 29, 0.38);
+
+    --accent-amazon: #12b5e8;
+    --accent-amazon-glow: rgba(18, 181, 232, 0.38);
+
+    --accent-hotstar: #328be8;
+    --accent-hotstar-glow: rgba(50, 139, 232, 0.38);
+
+    --accent-appletv: #e4e4e7;
+    --accent-appletv-glow: rgba(255, 255, 255, 0.25);
+
+    /* Decorative Accents */
+    --imdb-gold: #f5c518;
+    --imdb-gold-glow: rgba(245, 197, 24, 0.3);
+
+    /* Geometry & Timing */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 14px;
+    --radius-full: 9999px;
+    --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-smooth: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: var(--bg-dark);
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Subtle Geometric Pixel Grid Texture */
+    background-image: 
+        radial-gradient(circle at 50% 0%, rgba(30, 41, 59, 0.32) 0%, transparent 65%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 100% 100%, 32px 32px, 32px 32px;
+    background-attachment: fixed;
+}
+
+/* Ambient Radial Glow Overlays */
+.ambient-glow {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(140px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.35;
+}
+
+.glow-1 {
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 70%);
+    top: -180px;
+    left: -150px;
+}
+
+.glow-2 {
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(229, 9, 20, 0.15) 0%, transparent 70%);
+    bottom: -220px;
+    right: -200px;
+}
+
+.platform-glow {
+    width: 700px;
+    height: 700px;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.22;
+}
+
+.netflix-page .platform-glow {
+    background: radial-gradient(circle, var(--accent-netflix) 0%, transparent 70%);
+}
+
+.amazon-page .platform-glow {
+    background: radial-gradient(circle, var(--accent-amazon) 0%, transparent 70%);
+}
+
+.hotstar-page .platform-glow {
+    background: radial-gradient(circle, var(--accent-hotstar) 0%, transparent 70%);
+}
+
+.appletv-page .platform-glow {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.22) 0%, transparent 70%);
+}
+
+/* Master Layout Container */
+.container {
+    max-width: 1140px;
+    width: 92%;
+    margin: 0 auto;
+    padding: 3.5rem 0 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   HOMEPAGE: HERO SECTION
+   ========================================================================== */
+
+.home-hero {
+    text-align: center;
+    margin-bottom: 3.2rem;
+    position: relative;
+}
+
+/* Pixel-styled badge */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.32rem 0.95rem;
+    font-family: var(--font-pixel);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    margin-bottom: 1.2rem;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.hero-badge::before,
+.hero-badge::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--text-muted);
+}
+
+.hero-badge::before { top: -1px; left: -1px; }
+.hero-badge::after { bottom: -1px; right: -1px; }
+
+/* The ONEFILM Display Logo */
+.main-title {
+    font-family: var(--font-pixel);
+    font-size: clamp(2.8rem, 7.5vw, 5.2rem);
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.05;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #ffffff 40%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 18px rgba(255, 255, 255, 0.1));
+}
+
+.tagline {
+    font-family: var(--font-sans);
+    font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+    color: var(--text-secondary);
+    font-weight: 400;
+    max-width: 580px;
+    margin: 0 auto;
+    letter-spacing: -0.2px;
+    word-wrap: break-word;
+}
+
+/* ==========================================================================
+   HOMEPAGE: MOVIE OF THE DAY COMPONENT
+   ========================================================================== */
+
+.daily-movie-section {
+    margin-bottom: 4rem;
+}
+
+.daily-movie-card {
+    background: rgba(22, 27, 38, 0.92);
+    border: 1px solid rgba(245, 197, 24, 0.2);
+    border-radius: var(--radius-md);
+    padding: 1.8rem 2.2rem;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.38), 0 0 28px rgba(245, 197, 24, 0.035);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Pixel geometric accent top line */
+.daily-movie-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--imdb-gold) 15%, 
+        var(--accent-netflix) 40%, 
+        var(--accent-amazon) 65%, 
+        var(--accent-hotstar) 85%, 
+        transparent 100%
+    );
+}
+
+.daily-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.1rem;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.daily-label {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-pixel);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--imdb-gold);
+    text-transform: uppercase;
+}
+
+.daily-label .star-icon {
+    font-size: 0.9rem;
+    color: var(--imdb-gold);
+    filter: drop-shadow(0 0 6px var(--imdb-gold-glow));
+}
+
+.daily-platform-pill {
+    font-family: var(--font-pixel);
+    padding: 0.28rem 0.85rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-medium);
+}
+
+.daily-platform-pill.netflix {
+    background: rgba(229, 9, 20, 0.15);
+    border-color: rgba(229, 9, 20, 0.4);
+    color: #ff6b6b;
+}
+
+.daily-platform-pill.amazon {
+    background: rgba(0, 168, 225, 0.15);
+    border-color: rgba(0, 168, 225, 0.4);
+    color: #38bdf8;
+}
+
+.daily-platform-pill.hotstar {
+    background: rgba(31, 128, 224, 0.15);
+    border-color: rgba(31, 128, 224, 0.4);
+    color: #60a5fa;
+}
+
+.daily-platform-pill.appletv {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #f1f5f9;
+}
+
+.daily-title-row {
+    margin-bottom: 0.75rem;
+}
+
+.daily-title {
+    font-family: var(--font-sans);
+    font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+    word-wrap: break-word;
+}
+
+.daily-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.meta-separator {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.daily-imdb-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(245, 197, 24, 0.1);
+    border: 1px solid rgba(245, 197, 24, 0.3);
+    padding: 0.15rem 0.55rem;
+    border-radius: var(--radius-sm);
+    color: var(--imdb-gold);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.imdb-pill {
+    background: var(--imdb-gold);
+    color: #000;
+    font-family: var(--font-pixel);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.08rem 0.3rem;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+}
+
+.imdb-out-of {
+    opacity: 0.7;
+    font-size: 0.75rem;
+}
+
+.daily-desc {
+    font-size: 0.98rem;
+    color: #cbd5e1;
+    line-height: 1.65;
+    margin-bottom: 1.35rem;
+    max-width: 820px;
+}
+
+.daily-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--border-subtle);
+    flex-wrap: wrap;
+    gap: 0.9rem;
+}
+
+.imdb-attribution-text {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    letter-spacing: 0.2px;
+}
+
+/* Discover Another Button */
+.btn-discover-another {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.55rem 1.15rem;
+    font-family: var(--font-pixel);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-discover-another:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--border-highlight);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.btn-discover-another svg {
+    transition: transform 0.4s ease;
+}
+
+.btn-discover-another:hover svg {
+    transform: rotate(180deg);
+}
+
+.card-fade {
+    animation: fadeIn 0.35s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0.3; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   HOMEPAGE: PLATFORM SELECTION GRID (PRIMARY ACTION)
+   ========================================================================== */
+
+.platforms-section {
+    margin-bottom: 4.5rem;
+}
+
+.section-title-wrap {
+    text-align: center;
+    margin-bottom: 2.4rem;
+}
+
+.select-ott {
+    font-family: var(--font-pixel);
+    font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    word-wrap: break-word;
+}
+
+.section-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.ott-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.6rem;
+}
+
+/* Modern Geometric Platform Selection Cards */
+.ott-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.8rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--text-primary);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    backdrop-filter: blur(16px);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Pixel corner ticks on cards */
+.ott-card::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    transition: var(--transition-fast);
+}
+
+.ott-card::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    transition: var(--transition-fast);
+}
+
+.card-glow {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card-icon-wrapper {
+    width: 76px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.04);
+    margin-bottom: 1.3rem;
+    transition: var(--transition-smooth);
+    border: 1px solid var(--border-subtle);
+    padding: 8px;
+}
+
+.card-icon-wrapper img,
+.card-icon-wrapper svg.brand-icon {
+    max-width: 50px;
+    max-height: 38px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+.ott-card:hover .card-icon-wrapper svg.brand-icon {
+    transform: scale(1.12);
+}
+
+.ott-header .logo svg.brand-icon {
+    width: 36px;
+    height: 28px;
+    fill: #ffffff;
+    flex-shrink: 0;
+}
+
+.ott-name {
+    font-family: var(--font-pixel);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0.4rem;
+}
+
+.ott-count {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+}
+
+/* Individual Platform Themes & Hover Micro-Interactions */
+.ott-card.netflix:hover {
+    border-color: rgba(229, 9, 20, 0.55);
+    transform: translateY(-7px);
+    box-shadow: 0 16px 36px var(--accent-netflix-glow);
+}
+.ott-card.netflix .card-glow { background: var(--accent-netflix); }
+.ott-card.netflix:hover::before,
+.ott-card.netflix:hover::after { background: var(--accent-netflix); }
+.ott-card.netflix:hover .card-icon-wrapper {
+    background: rgba(229, 9, 20, 0.16);
+    border-color: rgba(229, 9, 20, 0.5);
+}
+
+.ott-card.amazon:hover {
+    border-color: rgba(0, 168, 225, 0.55);
+    transform: translateY(-7px);
+    box-shadow: 0 16px 36px var(--accent-amazon-glow);
+}
+.ott-card.amazon .card-glow { background: var(--accent-amazon); }
+.ott-card.amazon:hover::before,
+.ott-card.amazon:hover::after { background: var(--accent-amazon); }
+.ott-card.amazon:hover .card-icon-wrapper {
+    background: rgba(0, 168, 225, 0.16);
+    border-color: rgba(0, 168, 225, 0.5);
+}
+
+.ott-card.hotstar:hover {
+    border-color: rgba(31, 128, 224, 0.55);
+    transform: translateY(-7px);
+    box-shadow: 0 16px 36px var(--accent-hotstar-glow);
+}
+.ott-card.hotstar .card-glow { background: var(--accent-hotstar); }
+.ott-card.hotstar:hover::before,
+.ott-card.hotstar:hover::after { background: var(--accent-hotstar); }
+.ott-card.hotstar:hover .card-icon-wrapper {
+    background: rgba(31, 128, 224, 0.16);
+    border-color: rgba(31, 128, 224, 0.5);
+}
+
+.ott-card.appletv:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-7px);
+    box-shadow: 0 16px 36px var(--accent-appletv-glow);
+}
+.ott-card.appletv .card-glow { background: rgba(255, 255, 255, 0.3); }
+.ott-card.appletv:hover::before,
+.ott-card.appletv:hover::after { background: #ffffff; }
+.ott-card.appletv:hover .card-icon-wrapper {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+.ott-card:hover .card-glow { opacity: 0.35; }
+.ott-card:hover img { transform: scale(1.12); }
+.ott-card:hover .ott-count { color: var(--text-primary); }
+
+/* ==========================================================================
+   HOMEPAGE: ABOUT SECTION & FOOTER
+   ========================================================================== */
+
+.about-section {
+    max-width: 860px;
+    margin: 0 auto 3.5rem;
+}
+
+.about-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 1.9rem 2.4rem;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    position: relative;
+}
+
+.about-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+}
+
+.about-icon {
+    font-size: 1.15rem;
+}
+
+.about-header h3 {
+    font-family: var(--font-pixel);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.about-content p {
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.7;
+}
+
+.home-footer {
+    text-align: center;
+    padding: 2.2rem 0 1rem;
+    border-top: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    letter-spacing: 0.3px;
+}
+
+/* ==========================================================================
+   PLATFORM PAGES: COMMON THEMES & LAYOUT
+   ========================================================================== */
+
+.ott-page {
+    background-color: var(--bg-dark);
+    min-height: 100vh;
+}
+
+/* Dedicated platform grid backdrops */
+.ott-page.netflix-page {
+    background: 
+        radial-gradient(circle at 50% -10%, #290407 0%, #08090d 70%),
+        linear-gradient(rgba(229, 9, 20, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(229, 9, 20, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 32px 32px, 32px 32px;
+    background-attachment: fixed;
+}
+
+.ott-page.amazon-page {
+    background: 
+        radial-gradient(circle at 50% -10%, #05162a 0%, #08090d 70%),
+        linear-gradient(rgba(0, 168, 225, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 168, 225, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 32px 32px, 32px 32px;
+    background-attachment: fixed;
+}
+
+.ott-page.hotstar-page {
+    background: 
+        radial-gradient(circle at 50% -10%, #061938 0%, #08090d 70%),
+        linear-gradient(rgba(31, 128, 224, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(31, 128, 224, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 32px 32px, 32px 32px;
+    background-attachment: fixed;
+}
+
+.ott-page.appletv-page {
+    background: 
+        radial-gradient(circle at 50% -10%, #1a1a20 0%, #08090d 70%),
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 100% 100%, 32px 32px, 32px 32px;
+    background-attachment: fixed;
+}
+
+/* Platform Sticky Header */
+.ott-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 2.8rem;
+    background: rgba(8, 10, 14, 0.85);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border-subtle);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.ott-header .logo {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+}
+
+.ott-header .logo img {
+    max-width: 44px;
+    max-height: 32px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.header-titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-badge {
+    font-family: var(--font-pixel);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+}
+
+.ott-header .logo h1 {
+    font-family: var(--font-pixel);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    line-height: 1.1;
+    color: var(--text-primary);
+}
+
+.back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.5rem 1.15rem;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    font-family: var(--font-pixel);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.back-home:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--border-medium);
+    transform: translateX(-3px);
+}
+
+/* Main Content Container */
+.ott-content {
+    max-width: 880px;
+    margin: 2.5rem auto 4.5rem;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   SEARCH BAR
+   ========================================================================== */
+
+.search-section {
+    margin-bottom: 2.8rem;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 0.95rem 1.4rem 0.95rem 3.2rem;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    outline: none;
+    background: rgba(15, 18, 26, 0.85);
+    color: var(--text-primary);
+    backdrop-filter: blur(16px);
+    transition: var(--transition-smooth);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.search-bar::placeholder {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.search-bar:focus {
+    border-color: var(--border-highlight);
+    background: rgba(20, 25, 36, 0.95);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.search-bar:focus + .search-icon,
+.search-wrapper:focus-within .search-icon {
+    color: var(--text-primary);
+}
+
+.netflix-page .search-bar:focus { border-color: var(--accent-netflix); }
+.amazon-page .search-bar:focus { border-color: var(--accent-amazon); }
+.hotstar-page .search-bar:focus { border-color: var(--accent-hotstar); }
+.appletv-page .search-bar:focus { border-color: rgba(255, 255, 255, 0.5); }
+
+/* ==========================================================================
+   MOOD TAGS (GENRE / MOOD BROWSING)
+   ========================================================================== */
+
+.tags-section {
+    margin-bottom: 2.8rem;
+    text-align: center;
+}
+
+.tags-header {
+    margin-bottom: 1.3rem;
+}
+
+.tags-header h3 {
+    font-family: var(--font-pixel);
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+}
+
+.tags-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    justify-content: center;
+}
+
+.tag-btn {
+    padding: 0.58rem 1.15rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    transition: var(--transition-fast);
+    backdrop-filter: blur(8px);
+    position: relative;
+}
+
+.tag-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--border-medium);
+    transform: translateY(-2px);
+}
+
+/* Distinct Active States */
+.tag-btn.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.18);
+    border-color: #ffffff;
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.netflix-page .tag-btn.active {
+    background: var(--accent-netflix);
+    border-color: var(--accent-netflix);
+    color: #ffffff;
+    box-shadow: 0 4px 18px var(--accent-netflix-glow);
+}
+
+.amazon-page .tag-btn.active {
+    background: var(--accent-amazon);
+    border-color: var(--accent-amazon);
+    color: #ffffff;
+    box-shadow: 0 4px 18px var(--accent-amazon-glow);
+}
+
+.hotstar-page .tag-btn.active {
+    background: var(--accent-hotstar);
+    border-color: var(--accent-hotstar);
+    color: #ffffff;
+    box-shadow: 0 4px 18px var(--accent-hotstar-glow);
+}
+
+.appletv-page .tag-btn.active {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #07080b;
+    box-shadow: 0 4px 18px var(--accent-appletv-glow);
+}
+
+/* ==========================================================================
+   MOVIE RECOMMENDATION CARD
+   ========================================================================== */
+
+.movie-suggestion {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 2.6rem 2.4rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(24px);
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.45);
+    transition: var(--transition-smooth);
+}
+
+/* Subtle corner markers */
+.movie-suggestion::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.movie-suggestion::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Platform Accent Strip */
+.suggestion-accent-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #ffffff;
+    opacity: 0.4;
+}
+
+.netflix-page .suggestion-accent-bar { background: var(--accent-netflix); opacity: 1; }
+.amazon-page .suggestion-accent-bar { background: var(--accent-amazon); opacity: 1; }
+.hotstar-page .suggestion-accent-bar { background: var(--accent-hotstar); opacity: 1; }
+.appletv-page .suggestion-accent-bar { background: #ffffff; opacity: 0.8; }
+
+.movie-title {
+    font-family: var(--font-sans);
+    font-size: clamp(1.6rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.22;
+    margin-bottom: 0.85rem;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    word-wrap: break-word;
+}
+
+.movie-genre {
+    margin-bottom: 1.3rem;
+}
+
+.initial-prompt {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+/* Metadata Badges */
+.meta-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    margin-top: 0.4rem;
+}
+
+.badge {
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.84rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-subtle);
+}
+
+.badge-imdb {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(245, 197, 24, 0.1);
+    border-color: rgba(245, 197, 24, 0.35);
+    color: var(--imdb-gold);
+}
+
+.badge-imdb .imdb-text {
+    background: var(--imdb-gold);
+    color: #000;
+    font-family: var(--font-pixel);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.08rem 0.35rem;
+    border-radius: 2px;
+}
+
+.badge-genre {
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.badge-year {
+    color: var(--text-muted);
+}
+
+/* Secondary Tags Chips */
+.movie-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.45rem;
+    margin-bottom: 1.5rem;
+}
+
+.tag-chip {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.2rem 0.65rem;
+    border-radius: var(--radius-sm);
+}
+
+.movie-description {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+    max-width: 700px;
+    margin: 0 auto 2.3rem;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 1.1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1.8rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.94rem;
+    font-weight: 700;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    border: none;
+    text-decoration: none;
+}
+
+.btn svg {
+    flex-shrink: 0;
+}
+
+.btn-primary {
+    background: #ffffff;
+    color: #07080b;
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:hover {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.32);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-primary);
+    border: 1px solid var(--border-medium);
+    backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: var(--border-highlight);
+    transform: translateY(-2px);
+}
+
+.suggestion-fade {
+    animation: suggestionFade 0.32s ease-out;
+}
+
+@keyframes suggestionFade {
+    from { opacity: 0.35; transform: scale(0.985); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ==========================================================================
+   REVIEWS & USER RATINGS
+   ========================================================================== */
+
+.reviews {
+    margin-bottom: 4rem;
+}
+
+.avg-rating-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 1.3rem 1.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.6rem;
+    backdrop-filter: blur(16px);
+}
+
+.avg-score {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+}
+
+.avg-number {
+    font-family: var(--font-pixel);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--imdb-gold);
+}
+
+.avg-max {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.avg-stars {
+    margin-left: 0.7rem;
+    font-size: 1.15rem;
+    color: var(--imdb-gold);
+    letter-spacing: 2px;
+}
+
+.avg-count {
+    font-family: var(--font-pixel);
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+}
+
+.review-form {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 1.6rem 1.9rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(16px);
+}
+
+.form-title {
+    font-family: var(--font-pixel);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0.9rem;
+    text-transform: uppercase;
+}
+
+.star-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+}
+
+.star-input {
+    display: inline-flex;
+    gap: 0.35rem;
+    cursor: pointer;
+}
+
+.star {
+    font-size: 1.65rem;
+    color: rgba(255, 255, 255, 0.22);
+    transition: transform 0.15s ease, color 0.15s ease;
+    user-select: none;
+}
+
+.star:hover,
+.star.active {
+    color: var(--imdb-gold);
+    transform: scale(1.15);
+}
+
+.star-hint {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.review-text {
+    width: 100%;
+    padding: 0.9rem 1.15rem;
+    font-family: var(--font-sans);
+    font-size: 0.94rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle);
+    background: rgba(7, 9, 13, 0.65);
+    color: var(--text-primary);
+    resize: vertical;
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.review-text:focus {
+    border-color: var(--border-highlight);
+    background: rgba(7, 9, 13, 0.9);
+}
+
+.form-actions {
+    margin-top: 0.9rem;
+    text-align: right;
+}
+
+.submit-review,
+.submit-post {
+    padding: 0.65rem 1.45rem;
+    font-size: 0.88rem;
+    font-family: var(--font-pixel);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.review-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.review-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: 1.2rem 1.5rem;
+    backdrop-filter: blur(16px);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.45rem;
+}
+
+.stars-gold {
+    color: var(--imdb-gold);
+    letter-spacing: 2px;
+    font-size: 0.95rem;
+}
+
+.review-time {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.review-body {
+    font-size: 0.94rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed var(--border-subtle);
+    border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   COMMUNITY DISCUSSIONS
+   ========================================================================== */
+
+.community {
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 2.8rem;
+}
+
+.community-header {
+    margin-bottom: 1.8rem;
+}
+
+.community-header h3 {
+    font-family: var(--font-pixel);
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+}
+
+.community-header p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+}
+
+.create-post-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 1.7rem 1.9rem;
+    margin-bottom: 2.2rem;
+    backdrop-filter: blur(16px);
+}
+
+.create-post-card h4 {
+    font-family: var(--font-pixel);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.post-title {
+    width: 100%;
+    padding: 0.8rem 1.15rem;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle);
+    background: rgba(7, 9, 13, 0.65);
+    color: var(--text-primary);
+    outline: none;
+    margin-bottom: 0.8rem;
+    transition: var(--transition-fast);
+}
+
+.post-title:focus {
+    border-color: var(--border-highlight);
+}
+
+.post-desc {
+    width: 100%;
+    padding: 0.8rem 1.15rem;
+    font-family: var(--font-sans);
+    font-size: 0.94rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle);
+    background: rgba(7, 9, 13, 0.65);
+    color: var(--text-primary);
+    resize: vertical;
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.post-desc:focus {
+    border-color: var(--border-highlight);
+}
+
+.post-feed {
+    display: grid;
+    gap: 1.3rem;
+}
+
+.post-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: 1.5rem 1.9rem;
+    backdrop-filter: blur(16px);
+}
+
+.post-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.55rem;
+}
+
+.post-card-title {
+    font-family: var(--font-sans);
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.post-timestamp {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.post-card-desc {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.62;
+    margin-bottom: 1.2rem;
+}
+
+.post-interactions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.vote-group {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.vote-btn {
+    cursor: pointer;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    transition: var(--transition-fast);
+}
+
+.vote-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--text-primary);
+}
+
+.vote-count {
+    font-family: var(--font-pixel);
+    font-weight: 700;
+    font-size: 0.95rem;
+    min-width: 22px;
+    text-align: center;
+}
+
+.comment-input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-grow: 1;
+    max-width: 420px;
+}
+
+.comment-input {
+    flex-grow: 1;
+    padding: 0.48rem 0.95rem;
+    font-family: var(--font-sans);
+    font-size: 0.86rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle);
+    background: rgba(7, 9, 13, 0.6);
+    color: var(--text-primary);
+    outline: none;
+}
+
+.comment-input:focus {
+    border-color: var(--border-highlight);
+}
+
+.btn-comment {
+    cursor: pointer;
+    padding: 0.48rem 0.95rem;
+    font-family: var(--font-pixel);
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    transition: var(--transition-fast);
+}
+
+.btn-comment:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.comment-list {
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.55rem;
+}
+
+.comment-bubble {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 0.55rem 0.85rem;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.comment-text {
+    font-size: 0.88rem;
+    color: #e2e8f0;
+}
+
+.comment-time {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT & MEDIA QUERIES
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 2.2rem 0;
+        width: 92%;
+    }
+
+    .ott-header {
+        padding: 0.9rem 1.1rem;
+    }
+
+    .ott-header .logo h1 {
+        font-size: 1.15rem;
+    }
+
+    .brand-badge {
+        font-size: 0.6rem;
+    }
+
+    .back-home {
+        padding: 0.42rem 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    .ott-content {
+        margin: 1.8rem auto 3.2rem;
+        padding: 0 0.8rem;
+    }
+
+    .daily-movie-card {
+        padding: 1.3rem 1.2rem;
+    }
+
+    .daily-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .daily-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .btn-discover-another {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .movie-suggestion {
+        padding: 1.8rem 1.2rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .post-interactions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .comment-input-group {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .avg-rating-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 92%;
+        padding: 1.8rem 0;
+    }
+
+    .ott-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ott-card {
+        padding: 2rem 1.4rem;
+    }
+
+    .tag-btn {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.82rem;
+    }
+
+    .search-bar {
+        font-size: 0.92rem;
+        padding-left: 2.8rem;
+    }
+
+    .search-icon {
+        left: 0.95rem;
+        width: 18px;
+        height: 18px;
+    }
+
+    .main-title {
+        font-size: 2.8rem;
+    }
+}
+
+/* Homepage-only light theme */
+.home-page {
+    --bg-dark: #ffffff;
+    --bg-surface: #f7f8fa;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f8fafc;
+    --bg-element: #f3f5f7;
+    --bg-element-hover: #e9edf2;
+    --border-subtle: rgba(31, 41, 55, 0.14);
+    --border-medium: rgba(31, 41, 55, 0.24);
+    --border-highlight: rgba(31, 41, 55, 0.4);
+    --text-primary: #171a20;
+    --text-secondary: #4b5563;
+    --text-muted: #697586;
+    --text-dim: #8792a2;
+    --accent-netflix: #e50914;
+    --accent-netflix-glow: rgba(229, 9, 20, 0.16);
+    --accent-amazon: #00a8e1;
+    --accent-amazon-glow: rgba(0, 168, 225, 0.16);
+    --accent-hotstar: #1f80e0;
+    --accent-hotstar-glow: rgba(31, 128, 224, 0.16);
+    --accent-appletv: #555b65;
+    --accent-appletv-glow: rgba(55, 65, 81, 0.14);
+    --imdb-gold: #916600;
+    --imdb-gold-glow: rgba(145, 102, 0, 0.16);
+    background-color: #ffffff;
+    background-image: none;
+    color: var(--text-primary);
+}
+
+.home-page .ambient-glow {
+    display: none;
+}
+
+.home-page .hero-badge {
+    color: var(--text-secondary);
+    background: #f5f6f8;
+}
+
+.home-page .main-title {
+    color: #111318;
+    background: none;
+    -webkit-text-fill-color: #111318;
+    filter: none;
+}
+
+.home-page .daily-movie-card {
+    background: #ffffff;
+    border-color: rgba(31, 41, 55, 0.16);
+    box-shadow: 0 16px 40px rgba(31, 41, 55, 0.1);
+}
+
+.home-page .daily-movie-card::before {
+    background: #c49a32;
+}
+
+.home-page .daily-platform-pill.netflix {
+    color: #b4232d;
+}
+
+.home-page .daily-platform-pill.amazon {
+    color: #0879a8;
+}
+
+.home-page .daily-platform-pill.hotstar {
+    color: #1e62ad;
+}
+
+.home-page .daily-platform-pill.appletv {
+    color: #4b5563;
+}
+
+.home-page .daily-desc {
+    color: var(--text-secondary);
+}
+
+.home-page .btn-discover-another {
+    color: #202630;
+    background: #f3f5f7;
+    border-color: rgba(31, 41, 55, 0.22);
+}
+
+.home-page .btn-discover-another:hover {
+    background: #e9edf2;
+    border-color: rgba(31, 41, 55, 0.38);
+    box-shadow: 0 4px 14px rgba(31, 41, 55, 0.12);
+}
+
+.home-page .ott-card {
+    box-shadow: 0 10px 30px rgba(31, 41, 55, 0.08);
+}
+
+.home-page .ott-card::before,
+.home-page .ott-card::after {
+    background: rgba(31, 41, 55, 0.2);
+}
+
+.home-page .card-icon-wrapper {
+    background: #f3f5f7;
+}
+
+.home-page .card-icon-wrapper img,
+.home-page .card-icon-wrapper svg.brand-icon {
+    filter: none;
+}
+
+.home-page .ott-card.netflix {
+    background: #fff8f8;
+    border-color: rgba(229, 9, 20, 0.2);
+}
+
+.home-page .ott-card.netflix .ott-name {
+    color: #c8101b;
+}
+
+.home-page .ott-card.amazon {
+    background: #f5fbfe;
+    border-color: rgba(0, 168, 225, 0.22);
+}
+
+.home-page .ott-card.amazon .ott-name {
+    color: #087da8;
+}
+
+.home-page .ott-card.hotstar {
+    background: #f5f9ff;
+    border-color: rgba(31, 128, 224, 0.22);
+}
+
+.home-page .ott-card.hotstar .ott-name {
+    color: #1e62ad;
+}
+
+.home-page .ott-card.appletv {
+    background: #f6f6f7;
+    border-color: rgba(55, 65, 81, 0.2);
+}
+
+.home-page .ott-card.appletv .ott-name {
+    color: #414751;
+}
+
+.home-page .about-card {
+    background: #ffffff;
+    border-color: rgba(31, 41, 55, 0.14);
+    box-shadow: 0 8px 24px rgba(31, 41, 55, 0.08);
+}
+
+.home-page .home-footer {
+    border-color: rgba(31, 41, 55, 0.14);
+}
+
+.home-page .ott-card:focus-visible,
+.home-page .btn-discover-another:focus-visible {
+    outline: 2px solid #475569;
+    outline-offset: 3px;
+}
